@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>First Glance</title>
+<meta name="description" content="First Glance helps local UK businesses make a great first impression online: Google Business Profile refreshes, fast fixed-price websites you own, and Claude set up for your team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#ffffff;--ink:#14202B;--muted:#56626C;--line:#DDE3E6;--teal:#0E7C7B;--teal-d:#095B5A;--pale:#E7F3F2;--soft:#F5F8F8;--display:"Manrope",system-ui,sans-serif;--body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:clamp(2.3rem,5.6vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800}
+h3{font-size:1.3rem;font-weight:700}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 max(20px,4vw)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+.lede{font-size:1.12rem;color:var(--muted);max-width:60ch}
+
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em}
+.logo svg{flex:none}
+nav{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+nav a.cta{color:#fff;background:var(--teal);padding:8px 14px;border-radius:8px}
+nav a.cta:hover{background:var(--teal-d);color:#fff}
+
+.hero{background:var(--teal);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center;padding-top:64px;padding-bottom:64px}
+.hero .kick{font-weight:600;opacity:.9}
+.hero h1{margin-top:10px;color:#fff}
+.hero .lede{color:#D6ECEA;margin-top:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:1rem;border:2px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn-white{background:#fff;color:var(--teal-d)}
+.btn-white:hover{background:var(--pale)}
+.btn-line{border-color:#fff;color:#fff}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-d)}
+.trio{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.trio span{background:rgba(255,255,255,.14);padding:6px 12px;border-radius:999px;font-weight:600;font-size:.92rem}
+
+.phone{justify-self:center;width:min(270px,78%);background:#0B1A22;border-radius:38px;padding:12px;box-shadow:0 24px 50px -28px rgba(0,0,0,.6)}
+.screen{background:#fff;color:var(--ink);border-radius:28px;overflow:hidden}
+.sbar{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;padding:10px 18px 4px;color:#333}
+.search{margin:6px 12px 10px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.82rem;color:var(--muted)}
+.listing{padding:0 16px 16px}
+.pics{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:56px 56px;gap:4px;border-radius:12px;overflow:hidden}
+.pics i{display:block}
+.pics i:nth-child(1){grid-row:span 2;background:linear-gradient(140deg,#7CC4BE,#2F8C86)}
+.pics i:nth-child(2){background:linear-gradient(140deg,#F3D59A,#E0A955)}
+.pics i:nth-child(3){background:linear-gradient(140deg,#B8CBE6,#7E9CC8)}
+.listing h3{font-size:1.08rem;margin-top:12px}
+.meta{font-size:.8rem;color:var(--muted);margin-top:2px}
+.stars{color:#E8A500;letter-spacing:1px}
+.open{color:#1A7F37;font-weight:600}
+.acts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:12px}
+.acts span{border:1px solid var(--line);border-radius:999px;font-size:.72rem;font-weight:600;text-align:center;padding:6px 2px;color:var(--teal-d)}
+.post{margin-top:12px;background:var(--soft);border-radius:10px;padding:10px 12px;font-size:.78rem}
+.post b{display:block;font-size:.72rem;color:var(--muted);font-weight:600}
+.review{margin-top:8px;font-size:.78rem;border-left:3px solid var(--teal);padding-left:10px;color:#333}
+.callouts{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;font-size:.9rem}
+.callouts li{display:grid;grid-template-columns:22px 1fr;gap:8px;color:#E6F4F3}
+.callouts li::before{content:"";width:18px;height:18px;margin-top:3px;border-radius:50%;background:#fff;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 2Q10 10 18 10Q10 10 10 18Q10 10 2 10Q10 10 10 2Z'/%3E%3C/svg%3E") center/100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 2Q10 10 18 10Q10 10 10 18Q10 10 2 10Q10 10 10 2Z'/%3E%3C/svg%3E") center/100% no-repeat}
+
+section{padding:76px 0}
+.head{display:grid;gap:12px;margin-bottom:34px;max-width:720px}
+.kicker{font-weight:700;color:var(--teal);font-family:var(--display)}
+
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.svc{border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;background:#fff}
+.svc .step{font-weight:700;font-size:.85rem;color:var(--teal);font-family:var(--display)}
+.svc p{color:var(--muted)}
+.svc ul{margin:0;padding-left:20px;display:grid;gap:6px;font-size:.96rem}
+.price{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:2px}
+.price strong{font-family:var(--display);font-size:2rem;font-weight:800;white-space:nowrap}
+.price small{color:var(--muted);font-size:.9rem}
+.svc.pilot{background:var(--soft)}
+
+.plus{margin-top:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;background:var(--pale);border-radius:16px;padding:28px}
+.plus ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px}
+.plus li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:.96rem}
+.plus li::before{content:"✓";color:var(--teal);font-weight:800}
+.plus .not{grid-column:1/-1;font-size:.9rem;color:var(--muted)}
+
+.bundles{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;margin-top:20px}
+.bundle{background:var(--ink);color:#fff;border-radius:16px;padding:26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
+.bundle p{color:#C9D3DA;max-width:46ch}
+.bundle .big{font-family:var(--display);font-weight:800;font-size:2rem;white-space:nowrap}
+.bundle .big small{font-size:1rem;font-weight:600;color:#C9D3DA}
+.offer{border:2px solid var(--teal);border-radius:16px;padding:26px;display:grid;gap:12px;align-content:start}
+.offer p{color:var(--muted)}
+
+.evidence{background:var(--soft)}
+.group{margin-top:40px}
+.group:first-of-type{margin-top:0}
+.group h3{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;font-size:clamp(1.3rem,3vw,1.6rem)}
+.pill{font-family:var(--display);font-size:.9rem;font-weight:800;background:var(--teal);color:#fff;padding:5px 12px;border-radius:8px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:12px;align-content:start}
+.fact p{font-size:.96rem}
+.fact a{font-size:.8rem;color:var(--muted)}
+.num{font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1}
+.ring{position:relative;width:104px;height:104px;display:grid;place-items:center}
+.ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--teal) calc(var(--p) * 1%),#DDE6E6 0);-webkit-mask:radial-gradient(circle,transparent 62%,#000 63%);mask:radial-gradient(circle,transparent 62%,#000 63%)}
+.ring .num{position:relative;font-size:1.7rem}
+.bars{display:grid;gap:6px;font-size:.82rem;color:var(--muted)}
+.bars div{display:grid;grid-template-columns:84px 1fr;align-items:center;gap:8px}
+.bars i{display:block;height:10px;border-radius:5px;background:#C9D6D6}
+.bars i.hi{background:var(--teal)}
+.note{margin-top:26px;color:var(--muted);font-size:.92rem;max-width:72ch}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:s}
+.steps li{border-top:4px solid var(--teal);padding-top:16px;display:grid;gap:8px;align-content:start}
+.steps li::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--teal)}
+.steps h3{font-size:1.1rem}
+.steps p{color:var(--muted);font-size:.95rem}
+
+.work{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+.case{border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:10px}
+.status{font-size:.85rem;font-weight:700;color:var(--teal)}
+
+.contact{background:var(--pale)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.promise{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.promise li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.promise li::before{content:"✓";color:var(--teal);font-weight:800}
+form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+label{font-weight:600;font-size:.92rem;display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:16px;width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none}
+textarea{min-height:96px;resize:vertical}
+form .small{font-size:.85rem;color:var(--muted)}
+.form-msg{font-weight:600;color:var(--teal-d);min-height:1.4em}
+
+footer{background:var(--ink);color:#C9D3DA;padding:36px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer .logo{color:#fff}
+footer a{color:#fff}
+
+@media (max-width:960px){
+.hero .wrap,.work,.contact .wrap,.plus,.bundles{grid-template-columns:minmax(0,1fr)}
+.services{grid-template-columns:minmax(0,1fr)}
+.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.phone{margin-top:8px}
+}
+@media (max-width:600px){
+nav a:not(.cta){display:none}
+.hero .wrap{padding-top:40px;padding-bottom:44px;gap:30px}
+section{padding:56px 0}
+.plus ul,.row2{grid-template-columns:minmax(0,1fr)}
+.steps{grid-template-columns:minmax(0,1fr)}
+.fact{grid-template-columns:auto 1fr;align-items:center}
+.fact .ring{grid-row:span 2;width:88px;height:88px}
+.fact .ring .num{font-size:1.4rem}
+.fact a{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="First Glance home">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0E7C7B"/><path d="M20 8 Q20 20 32 20 Q20 20 20 32 Q20 20 8 20 Q20 20 20 8 Z" fill="#fff"/></svg>
+      first glance
+    </a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#how">How it works</a>
+      <a class="cta" href="#contact">Free check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kick">For local businesses across the UK</p>
+        <h1>Make a great first impression online.</h1>
+        <p class="lede">Most customers find you on Google and decide in minutes. I make sure your Google listing and website show you at your best, so more of them call, visit and book.</p>
+        <div class="btns">
+          <a class="btn btn-white" href="#contact">Get your free check</a>
+          <a class="btn btn-line" href="#services">See prices</a>
+        </div>
+        <div class="trio" aria-label="Three services"><span>Found</span><span>Booked</span><span>Sorted</span></div>
+        <ul class="callouts">
+          <li>The right category, so you show up for the right searches</li>
+          <li>Photos, posts and reviews that look active and trusted</li>
+          <li>A clear way to call, find you or book in one tap</li>
+        </ul>
+      </div>
+      <div class="phone" aria-label="Example of a complete Google listing on a phone">
+        <div class="screen">
+          <div class="sbar"><span>9:41</span><span>5G</span></div>
+          <div class="search">bungee fitness near me</div>
+          <div class="listing">
+            <div class="pics" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3>Your Business</h3>
+            <p class="meta"><span class="stars" aria-hidden="true">★★★★★</span> 4.9 (86) · Fitness studio</p>
+            <p class="meta"><span class="open">Open</span> · Closes 9 pm · High Street</p>
+            <div class="acts" aria-hidden="true"><span>Call</span><span>Book</span><span>Route</span><span>Website</span></div>
+            <div class="post"><b>Update from the owner · 2 days ago</b>New Saturday family session starts this weekend. Book online.</div>
+            <p class="review">"Brilliant first class, so friendly." <span class="meta">Owner replied</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">Services and prices</span>
+        <h2>Three steps. Start with one.</h2>
+        <p class="lede">Each step builds on the last. Fixed prices, no 12-month contracts, and you own everything I build.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="step">Step 1</span>
+          <h3>Found</h3>
+          <p>Your Google Business Profile rebuilt, so you show up on Search and Maps and look trustworthy when you do.</p>
+          <ul>
+            <li>Full profile check and rebuild</li>
+            <li>Category, services, hours and description</li>
+            <li>10+ photos added</li>
+            <li>Review link and QR card for your counter</li>
+            <li>First month of Google posts</li>
+          </ul>
+          <div class="price"><strong>£249</strong><small>one-off · done within a week</small></div>
+        </article>
+        <article class="svc">
+          <span class="step">Step 2</span>
+          <h3>Booked</h3>
+          <p>A fast, modern website that turns the people who find you into bookings and enquiries.</p>
+          <ul>
+            <li>5 pages, built for phones first</li>
+            <li>Booking or contact, linked to your current system</li>
+            <li>Loads in under 3 seconds on a phone</li>
+            <li>Linked to your Google listing</li>
+            <li>Live 2 to 3 weeks after I receive your content</li>
+          </ul>
+          <div class="price"><strong>£695</strong><small>one-off · hosting and care £39 a month</small></div>
+        </article>
+        <article class="svc pilot">
+          <span class="step">Step 3 · now piloting</span>
+          <h3>Sorted</h3>
+          <p>Claude, an AI assistant, set up for your business, with simple tools so your team spends less time on admin.</p>
+          <ul>
+            <li>Claude set up for you and your staff</li>
+            <li>Custom tools: rotas, task lists, checklists, stock</li>
+            <li>Help writing posts, emails and replies</li>
+            <li>Works alongside your booking system</li>
+            <li>Monthly support and new tools as you need them</li>
+          </ul>
+          <div class="price"><strong>£299</strong><small>setup · support £39 a month · your Claude plan is paid directly to Anthropic</small></div>
+        </article>
+      </div>
+
+      <div class="plus">
+        <div>
+          <h3>Found+ · £49 a month</h3>
+          <p class="lede" style="margin-top:8px;font-size:1rem">Keep your Google listing active after Found, without lifting a finger.</p>
+        </div>
+        <ul>
+          <li>4 Google posts a month</li>
+          <li>Every review answered within 2 working days</li>
+          <li>Hours and details kept up to date, including holidays</li>
+          <li>Up to 5 new photos added from yours</li>
+          <li>Watching for unwanted edits to your listing</li>
+          <li>A one-page report each month: calls, directions, clicks</li>
+          <li class="not">Not included: new photography, paid ads, website changes, or replying to customer messages for you.</li>
+        </ul>
+      </div>
+
+      <div class="bundles">
+        <div class="bundle">
+          <div>
+            <h3>Found + Booked</h3>
+            <p style="margin-top:6px">Your Google listing and website together, with Found+ and website care included. Saves £95 up front and £9 a month.</p>
+          </div>
+          <div class="big">£849 <small>+ £79 a month</small></div>
+        </div>
+        <div class="offer">
+          <h3>Founding client offer</h3>
+          <p>The first 5 businesses get 25% off any one-off fee, in return for a before-and-after case study and an honest review.</p>
+          <a class="btn btn-teal" href="#contact" style="justify-self:start">Claim a place</a>
+        </div>
+      </div>
+      <p class="note">Monthly plans run for 3 months, then 30 days' notice. No VAT charged.</p>
+    </div>
+  </section>
+
+  <section id="evidence" class="evidence">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">The evidence</span>
+        <h2>Why the first glance matters</h2>
+        <p class="lede">Every figure below comes from published research. Follow the link under each one to read it yourself.</p>
+      </div>
+
+      <div class="group">
+        <h3><span class="pill">Found</span> Customers check Google first</h3>
+        <div class="facts">
+          <div class="fact"><span class="num">7×</span><div class="bars" aria-hidden="true"><div><span>Incomplete</span><i style="width:14%"></i></div><div><span>Complete</span><i class="hi" style="width:100%"></i></div></div><p>more clicks for complete Google Business Profiles than incomplete ones.</p><a href="https://biziq.com/blog/google-business-profile-statistics/">Google, via BizIQ, 2026</a></div>
+          <div class="fact"><div class="ring" style="--p:97"><span class="num">97%</span></div><p>of consumers read reviews when choosing a local business.</p><a href="https://brightlocal.com/research/local-seo-statistics/">BrightLocal Local Consumer Review Survey, 2026</a></div>
+          <div class="fact"><div class="ring" style="--p:62"><span class="num">62%</span></div><p>would avoid a business if they found incorrect information online.</p><a href="https://www.brightlocal.com/insights/local-seo-statistics/">BrightLocal, 2023</a></div>
+          <div class="fact"><div class="ring" style="--p:75"><span class="num">75%</span></div><p>decide which local business to use in under 30 minutes.</p><a href="https://www.brightlocal.com/insights/local-seo-statistics/">BrightLocal Consumer Search Behavior, 2026</a></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3><span class="pill">Booked</span> A listing needs somewhere to send people</h3>
+        <div class="facts">
+          <div class="fact"><div class="ring" style="--p:33"><span class="num">33%</span></div><p>of 6,266 owner-claimed Google listings across 12 UK towns and cities had no working website. In health and beauty it was 53%.</p><a href="https://www.techradar.com/pro/a-third-of-businesses-on-google-maps-have-no-working-website-and-many-of-those-that-do-are-struggling-to-keep-them-up-to-date">Digital Royalty study, via TechRadar</a></div>
+          <div class="fact"><div class="ring" style="--p:53"><span class="num">53%</span></div><p>of mobile visitors leave a page that takes longer than 3 seconds to load.</p><a href="https://www.ampproject.org/latest/blog/new-industry-benchmarks-for-mobile-page-speed/">Google/SOASTA research, 2017</a></div>
+          <div class="fact"><span class="num">£1.5–3k</span><div class="bars" aria-hidden="true"><div><span>Freelancer</span><i style="width:100%"></i></div><div><span>Booked</span><i class="hi" style="width:23%"></i></div></div><p>is what a freelance brochure website typically costs in the UK. Booked is a fixed £695, and you own it.</p><a href="https://whito.co.uk/start/website-costs/">Whito UK website costs, 2026</a></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3><span class="pill">Sorted</span> Admin eats the week</h3>
+        <div class="facts">
+          <div class="fact"><span class="num">11 hrs</span><p>a week spent by UK small business owners on admin and finance tasks.</p><a href="https://startupsmagazine.co.uk/small-businesses-spend-more-time-on-admin-than-growing-their-business">American Express and Small Business Saturday UK</a></div>
+          <div class="fact"><div class="ring" style="--p:50"><span class="num">½</span></div><p>of business admin could be cut with better use of technology, according to Sage's estimate.</p><a href="https://www.sage.com/en-gb/company/digital-newsroom/2024/04/24/an-extra-hour-of-smb-productivity-a-week-worth-7bn-to-uk-economy">Sage research, 2024</a></div>
+        </div>
+      </div>
+      <p class="note">These are averages from wider studies, not promises for your business. I measure your own calls, clicks and bookings before and after, so you can see what changed.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker">How it works</span>
+        <h2>From first look to more bookings</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Free check</h3><p>Tell me about your business. I look at your Google listing and website.</p></li>
+        <li><h3>A quick call</h3><p>Within 2 working days I call to talk you through what I found. About 10 minutes.</p></li>
+        <li><h3>Fixed quote</h3><p>A clear price for the step that will make the biggest difference first.</p></li>
+        <li><h3>I build it</h3><p>Found within a week, Booked 2 to 3 weeks after I receive your content.</p></li>
+        <li><h3>I measure it</h3><p>A short report after 60 days: calls, clicks and bookings against where you started.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="work" style="padding-top:0">
+    <div class="wrap work">
+      <div class="head" style="margin:0">
+        <span class="kicker">My work</span>
+        <h2>Local, and built to last</h2>
+        <p class="lede">I keep the systems you already rely on for bookings, payments and memberships, and put a faster, better-looking front on them.</p>
+      </div>
+      <div class="case">
+        <span class="status">Case study in progress</span>
+        <h3>The Studio, Biggleswade</h3>
+        <p>A bungee fitness studio with 43 five-star Google reviews. A new modern website with Wix kept behind it for bookings and memberships, plus a rebuilt Google listing. Before-and-after results will be published here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="head" style="margin:0">
+        <span class="kicker">Free check</span>
+        <h2>See your business at first glance</h2>
+        <p class="lede">Tell me a little about your business. I'll check your Google listing and website, then call you to talk you through what I find. No cost and no obligation.</p>
+        <ul class="promise">
+          <li>A confirmation email by the next morning</li>
+          <li>A call within 2 working days</li>
+          <li>Your written check to keep, after the call</li>
+        </ul>
+      </div>
+      <form id="check-form" name="free-check" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="free-check">
+        <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+        <div class="row2">
+          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
+          <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
+        </div>
+        <label for="f-biz">Business name and town<input id="f-biz" name="business" required></label>
+        <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+        <label for="f-site">Your website or Google listing (if you have one)<input id="f-site" name="website" inputmode="url" placeholder="e.g. yourbusiness.co.uk"></label>
+        <label for="f-need">What would help most?
+          <select id="f-need" name="need">
+            <option>Getting found on Google</option>
+            <option>A new or better website</option>
+            <option>Claude set up for my business (Sorted)</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label for="f-msg">Anything else?<textarea id="f-msg" name="message"></textarea></label>
+        <button class="btn btn-teal" type="submit">Request my free check</button>
+        <p class="small">Prefer to email? <a href="mailto:jack@firstglance.org.uk">jack@firstglance.org.uk</a>. I only use these details to reply to you, and never share them.</p>
+        <p class="form-msg" id="form-msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><svg width="28" height="28" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0E7C7B"/><path d="M20 8 Q20 20 32 20 Q20 20 20 32 Q20 20 8 20 Q20 20 20 8 Z" fill="#fff"/></svg>first glance</span>
+    <span>Run by Jack, a sole trader in Bedfordshire · <a href="mailto:jack@firstglance.org.uk">jack@firstglance.org.uk</a> · No VAT charged</span>
+  </div>
+</footer>
+
+<script>
+{
+  const form = document.getElementById('check-form');
+  const msg = document.getElementById('form-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const val = id => document.getElementById(id).value.trim();
+    const name = val('f-name'), biz = val('f-biz'), email = val('f-email');
+    const phone = val('f-phone').replace(/[^0-9+]/g, '');
+    if (!name || !biz || !/^\S+@\S+\.\S+$/.test(email) || phone.length < 10) {
+      msg.textContent = 'Please add your name, business, a valid email and a phone number.';
+      return;
+    }
+    const live = /firstglance\.org\.uk$|netlify\.app$/.test(location.hostname);
+    if (!live) {
+      msg.textContent = 'Thanks ' + name + '. This is a preview, so the form can’t send from here. Please email jack@firstglance.org.uk.';
+      return;
+    }
+    const btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    msg.textContent = 'Sending…';
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() })
+      .then(r => { if (!r.ok) throw new Error(r.status); form.reset(); msg.textContent = 'Thanks ' + name + '. Your request has been sent. You’ll get a confirmation email by the next morning, and I’ll call you within 2 working days.'; })
+      .catch(() => { msg.textContent = 'Sorry, that didn’t send. Please email jack@firstglance.org.uk instead.'; })
+      .finally(() => { btn.disabled = false; });
+  });
+}
+</script>
+</body>
+</html>
