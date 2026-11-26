@@ -90,13 +90,22 @@ section{padding:72px 0}
 .tabs button[aria-pressed="true"]{border-color:var(--teal);background:var(--pale);color:var(--teal-d)}
 .small{font-size:.88rem;color:var(--muted)}
 
-.phones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:48px}
-.phonepair{display:grid;gap:12px}
-.phonepair .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-figure{margin:0;display:grid;gap:8px}
-figcaption{font-size:.85rem;font-weight:600;color:var(--muted);text-align:center}
+.pstory{display:grid;gap:28px;margin-top:56px}
+.pstory h3{font-size:1.4rem;margin-top:12px}
+.pstep{display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;align-items:center;max-width:860px}
 .frame{background:#0B1A22;border-radius:26px;padding:8px}
 .frame img{border-radius:19px;aspect-ratio:390/844;object-fit:cover;object-position:top;width:100%}
+.ptext{display:grid;gap:12px}
+.ptag{justify-self:start;font-size:.8rem;font-weight:700;padding:4px 10px;border-radius:6px;background:#E9ECEE;color:var(--muted)}
+.after .ptag{background:var(--teal);color:#fff}
+.ptext h4{font-family:var(--display);font-size:1.15rem;margin:0}
+.ptext ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.ptext li{display:grid;grid-template-columns:22px 1fr;gap:6px;color:var(--muted)}
+.ptext li b{color:var(--ink);font-weight:600}
+.before .ptext li::before{content:"✕";color:#A0484A;font-weight:800;grid-row:span 2}
+.after .ptext li::before{content:"✓";color:var(--teal);font-weight:800;grid-row:span 2}
+.ptext li b{grid-column:2}
+.pstep.after{padding-bottom:24px;border-bottom:1px solid var(--line)}
 
 .changes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px;list-style:none;margin:0;padding:0}
 .changes li{display:grid;grid-template-columns:22px 1fr;gap:8px}
@@ -111,8 +120,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
 footer .logo{color:#fff}
 footer a{color:#fff}
 
-@media (max-width:960px){.brief,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.phones{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:600px){nav a:not(.cta){display:none}section{padding:52px 0}.brief,.stats,.changes{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:960px){.brief,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.pstep{grid-template-columns:180px minmax(0,1fr);gap:24px}}
+@media (max-width:600px){nav a:not(.cta){display:none}section{padding:52px 0}.brief,.stats,.changes{grid-template-columns:minmax(0,1fr)}.pstep{grid-template-columns:minmax(0,1fr);gap:16px}.pstep .frame{width:min(240px,70%);justify-self:center}}
 </style>
 </head>
 <body>
@@ -169,19 +178,58 @@ footer a{color:#fff}
         <p class="small">On a laptop, 1440 pixels wide.</p>
       </div>
 
-      <div class="phones">
-        <div class="phonepair">
-          <h3>Home page on a phone</h3>
-          <div class="row">
-            <figure><div class="frame"><img src="img/before-home-phone.jpg" alt="Old home page on a phone" width="780" height="1688"></div><figcaption>Before</figcaption></figure>
-            <figure><div class="frame"><img src="img/after-home-phone.jpg" alt="New home page on a phone" width="780" height="1688"></div><figcaption>After</figcaption></figure>
+      <div class="pstory">
+        <h3>Home page on a phone</h3>
+        <div class="pstep before">
+          <div class="frame"><img src="img/before-home-phone.jpg" alt="Old home page on a phone" width="780" height="1688"></div>
+          <div class="ptext">
+            <span class="ptag">Before</span>
+            <h4>What a visitor saw first</h4>
+            <ul>
+            <li><b>The logo filled the top of the screen.</b> The address, a search box and a shopping basket came next, before anything about classes.</li>
+            <li><b>An empty basket icon.</b> The Studio doesn't sell products online, so it only added clutter.</li>
+            <li><b>Small round icons over a busy video.</b> The class names were hard to read and hard to tap.</li>
+            <li><b>A chat bubble on top of the page.</b> It covered the content on a small screen.</li>
+            </ul>
           </div>
         </div>
-        <div class="phonepair">
-          <h3>Bungee page on a phone</h3>
-          <div class="row">
-            <figure><div class="frame"><img src="img/before-bungee-phone.jpg" alt="Old bungee fitness page on a phone" width="780" height="1688"></div><figcaption>Before</figcaption></figure>
-            <figure><div class="frame"><img src="img/after-bungee-phone.jpg" alt="New bungee fitness page on a phone" width="780" height="1688"></div><figcaption>After</figcaption></figure>
+        <div class="pstep after">
+          <div class="frame"><img src="img/after-home-phone.jpg" alt="New home page on a phone" width="780" height="1688"></div>
+          <div class="ptext">
+            <span class="ptag">After</span>
+            <h4>What a visitor sees now</h4>
+            <ul>
+            <li><b>A slim header with a Book button.</b> Booking is the main reason people visit, so it is one tap away on every page.</li>
+            <li><b>A headline that says what and where.</b> "Bounce, fly and feel good" and the High Street location, so people know they're in the right place within seconds.</li>
+            <li><b>Two clear next steps.</b> Book a session or see memberships, instead of a single "Contact us" button.</li>
+            <li><b>Photo cards for each activity.</b> Big, readable and easy to tap with a thumb.</li>
+            </ul>
+          </div>
+        </div>
+        <h3>Bungee fitness page on a phone</h3>
+        <div class="pstep before">
+          <div class="frame"><img src="img/before-bungee-phone.jpg" alt="Old bungee fitness page on a phone" width="780" height="1688"></div>
+          <div class="ptext">
+            <span class="ptag">Before</span>
+            <h4>What a visitor saw first</h4>
+            <ul>
+            <li><b>The same tall header again.</b> Most of the first screen went on the logo and address.</li>
+            <li><b>A small calendar straight away.</b> First-timers were asked to pick a date before being told what bungee fitness is.</li>
+            <li><b>No mention of the induction.</b> New customers need one before any class, but the page didn't say so up front.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pstep after">
+          <div class="frame"><img src="img/after-bungee-phone.jpg" alt="New bungee fitness page on a phone" width="780" height="1688"></div>
+          <div class="ptext">
+            <span class="ptag">After</span>
+            <h4>What a visitor sees now</h4>
+            <ul>
+            <li><b>"Book an induction, then fly."</b> Tells first-timers exactly what to do first, because an induction is needed before any class.</li>
+            <li><b>One big booking button.</b> The next step is obvious and easy to tap.</li>
+            <li><b>The 10% student discount up front.</b> A reason to book now, shown where people decide.</li>
+            <li><b>A plain explanation underneath.</b> What bungee fitness is and who it suits, for people who have never tried it.</li>
+            </ul>
           </div>
         </div>
       </div>
