@@ -5,4 +5,6 @@ The source for **https://firstglance.org.uk**, the website of First Glance, a so
 - `index.html` is the First Glance website.
 - `demo/` holds **mock-ups** made to show prospective clients what their Google listing or website could look like. They are not the clients' real websites or real Google listings, are hidden from search engines, and are labelled as mock-ups on the page.
 
+Pushes to `main` deploy automatically to Netlify.
+
 Contact: jack@firstglance.org.uk
